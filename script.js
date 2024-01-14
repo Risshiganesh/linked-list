@@ -81,7 +81,49 @@ function linkedList() {
     return temp;
   };
 
-  return { append, prepend, size, head, tail };
+  // 6
+  const at = function (index) {
+    temp = list;
+
+    let counter = 0;
+
+    while (counter < index) {
+      if (!temp.next) {
+        temp = null;
+        return temp;
+      }
+      temp = temp.next;
+
+      counter++;
+    }
+
+    return temp;
+  };
+
+  const pop = function () {
+    temp = list;
+    if (!temp.next) {
+      console.log("BRUH");
+      list = null;
+      return;
+    }
+
+    while (temp.next.next) {
+      console.log("Current item");
+      console.log(temp.value);
+      temp = temp.next;
+    }
+
+    console.log("Last item");
+
+    console.log(temp);
+
+    temp.next = null;
+
+    console.log(temp);
+  };
+
+  return { append, prepend, size, head, tail, at, pop };
 }
 
 const jj = linkedList();
@@ -90,7 +132,7 @@ const jj = linkedList();
 
 jj.append("John");
 jj.append("Jane");
-// jj.append("Juno");
+jj.append("Juno");
 
 // jj.prepend("Jake");
 // jj.prepend("Jill");
@@ -101,6 +143,26 @@ console.log(jj.head());
 
 console.log(jj.size());
 
+console.log(jj.tail());
+
+console.log(jj.at(3));
+
+console.log("POP");
+console.log(jj.pop());
+
+console.log("TAIL");
+console.log(jj.tail());
+
+console.log("POP");
+console.log(jj.pop());
+
+console.log("TAIL");
+console.log(jj.tail());
+
+console.log("POP");
+console.log(jj.pop());
+
+console.log("TAIL");
 console.log(jj.tail());
 
 // console.log(ll);
