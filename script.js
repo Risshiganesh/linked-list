@@ -3,6 +3,8 @@ console.log("Hello World!");
 
 // Test all methods tomorrow before clicking submit.
 
+// change next to nextNode
+
 function linkedList() {
   // head
   let list = null;
