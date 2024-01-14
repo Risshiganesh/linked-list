@@ -1,6 +1,8 @@
 console.log("Hello World!");
 //  Create using factories, because composition is better than inheritance
 
+// Test all methods tomorrow before clicking submit.
+
 function linkedList() {
   // head
   let list = null;
@@ -193,18 +195,52 @@ function linkedList() {
       return;
     }
   
-    for (let i = 0; i < index; i++) {
+    for (let i = 1; i < index; i++) {
       
-      // incorrect
-      temp.next = node(value, temp.next)
-  
       temp = temp.next;
   
     }
+
+    const remainingList = temp.next
+
+    temp.next = node(value, remainingList);
   
   }
 
-  return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt};
+  // 12
+  const removeAt = function(index){
+    
+    temp = list;
+
+    if (!index) {
+      return "Please specify an index"
+    }
+
+    if (index === 0) {
+      list = temp.next;
+      return;
+    }
+
+    for (let i = 1; i < index; i++) {
+
+      if (!temp) {
+        return "Node not found"
+      }
+      
+      temp = temp.next;
+  
+    }
+
+    console.log(temp.next)
+
+    if (!temp.next) {
+      return
+    }
+
+    temp.next = temp.next.next;
+  }
+
+  return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt};
 }
 
 
@@ -230,11 +266,11 @@ console.log(jj.tail());
 
 console.log(jj.at(3));
 
-console.log("POP");
-console.log(jj.pop());
+// console.log("POP");
+// console.log(jj.pop());
 
-console.log("TAIL");
-console.log(jj.tail());
+// console.log("TAIL");
+// console.log(jj.tail());
 
 // console.log("POP");
 // console.log(jj.pop());
@@ -258,4 +294,8 @@ console.log(jj.find("Jane"));
 
 console.log(jj.toString())
 
-console.log(jj.insertAt(1));
+console.log(jj.insertAt("Jill",3));
+
+console.log(jj.removeAt(4));
+
+console.log(jj.toString());
