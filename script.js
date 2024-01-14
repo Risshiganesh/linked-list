@@ -100,31 +100,114 @@ function linkedList() {
     return temp;
   };
 
+  // 7
   const pop = function () {
     temp = list;
     if (!temp.next) {
-      console.log("BRUH");
       list = null;
       return;
     }
 
     while (temp.next.next) {
-      console.log("Current item");
-      console.log(temp.value);
       temp = temp.next;
     }
 
-    console.log("Last item");
-
-    console.log(temp);
-
     temp.next = null;
-
-    console.log(temp);
   };
 
-  return { append, prepend, size, head, tail, at, pop };
+  // 8
+  const contains = function (value){
+
+    temp = list;
+
+    while(temp){
+
+      if (temp.value === value) {
+        
+        return true;
+
+      }
+
+      temp = temp.next;
+
+    }
+
+    return false;
+
+  }
+
+  // 9
+  const find = function (value){
+
+    temp = list;
+
+    let index = 0;
+
+    while(temp){
+
+      if (temp.value === value) {
+        
+        return index;
+
+      }
+
+      temp = temp.next;
+
+      index++
+
+    }
+
+    return false;
+
+  }
+
+  // 10
+  const toString = function (){
+
+    const listArray = []
+
+    temp = list;
+
+    while(temp){
+
+      listArray.push(`( ${temp.value} ) -> `)
+
+      temp = temp.next
+
+    }
+
+    listArray.push('null')
+
+    return listArray.join("");
+  }
+
+  // 11
+  const insertAt = function(value, index){
+
+    temp = list;
+  
+    if(index === 0){
+      newlist = node(value, list);
+  
+      list = newlist;
+      return;
+    }
+  
+    for (let i = 0; i < index; i++) {
+      
+      // incorrect
+      temp.next = node(value, temp.next)
+  
+      temp = temp.next;
+  
+    }
+  
+  }
+
+  return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt};
 }
+
+
 
 const jj = linkedList();
 
@@ -153,16 +236,26 @@ console.log(jj.pop());
 console.log("TAIL");
 console.log(jj.tail());
 
-console.log("POP");
-console.log(jj.pop());
+// console.log("POP");
+// console.log(jj.pop());
 
-console.log("TAIL");
-console.log(jj.tail());
+// console.log("TAIL");
+// console.log(jj.tail());
 
-console.log("POP");
-console.log(jj.pop());
+// console.log("POP");
+// console.log(jj.pop());
 
-console.log("TAIL");
-console.log(jj.tail());
+// console.log("TAIL");
+// console.log(jj.tail());
 
-// console.log(ll);
+
+
+console.log(jj.contains("Jane"));
+console.log(jj.head());
+
+console.log("FIND");
+console.log(jj.find("Jane"));
+
+console.log(jj.toString())
+
+console.log(jj.insertAt(1));
