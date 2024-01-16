@@ -11,8 +11,8 @@ function linkedList() {
 
   let temp;
 
-  const node = function (value = null, next = null) {
-    return { value, next };
+  const node = function (value = null, nextNode = null) {
+    return { value, nextNode };
   };
 
   // 1
@@ -22,11 +22,11 @@ function linkedList() {
       return;
     }
     temp = list;
-    while (temp.next) {
+    while (temp.nextNode) {
       //   console.log(list);
-      temp = temp.next;
+      temp = temp.nextNode;
     }
-    temp.next = node(value);
+    temp.nextNode = node(value);
   };
 
   // 2
@@ -38,7 +38,7 @@ function linkedList() {
 
     temp = list;
     list = node(value);
-    list.next = temp;
+    list.nextNode = temp;
   };
 
   // 3
@@ -49,7 +49,7 @@ function linkedList() {
 
     while (temp) {
       total++;
-      temp = temp.next;
+      temp = temp.nextNode;
     }
 
     return total;
@@ -60,11 +60,6 @@ function linkedList() {
     temp = list;
     if (!list) {
       return "List empty";
-    }
-    // console.log(list);
-    while (temp) {
-      console.log(temp.value);
-      temp = temp.next;
     }
 
     return list;
@@ -78,8 +73,8 @@ function linkedList() {
       return "List empty";
     }
 
-    while (temp.next) {
-      temp = temp.next;
+    while (temp.nextNode) {
+      temp = temp.nextNode;
     }
 
     return temp;
@@ -92,11 +87,11 @@ function linkedList() {
     let counter = 0;
 
     while (counter < index) {
-      if (!temp.next) {
+      if (!temp.nextNode) {
         temp = null;
         return temp;
       }
-      temp = temp.next;
+      temp = temp.nextNode;
 
       counter++;
     }
@@ -107,16 +102,16 @@ function linkedList() {
   // 7
   const pop = function () {
     temp = list;
-    if (!temp.next) {
+    if (!temp.nextNode) {
       list = null;
       return;
     }
 
-    while (temp.next.next) {
-      temp = temp.next;
+    while (temp.nextNode.nextNode) {
+      temp = temp.nextNode;
     }
 
-    temp.next = null;
+    temp.nextNode = null;
   };
 
   // 8
@@ -132,7 +127,7 @@ function linkedList() {
 
       }
 
-      temp = temp.next;
+      temp = temp.nextNode;
 
     }
 
@@ -155,7 +150,7 @@ function linkedList() {
 
       }
 
-      temp = temp.next;
+      temp = temp.nextNode;
 
       index++
 
@@ -176,7 +171,7 @@ function linkedList() {
 
       listArray.push(`( ${temp.value} ) -> `)
 
-      temp = temp.next
+      temp = temp.nextNode;
 
     }
 
@@ -199,13 +194,13 @@ function linkedList() {
   
     for (let i = 1; i < index; i++) {
       
-      temp = temp.next;
+      temp = temp.nextNode;
   
     }
 
-    const remainingList = temp.next
+    const remainingList = temp.nextNode
 
-    temp.next = node(value, remainingList);
+    temp.nextNode = node(value, remainingList);
   
   }
 
@@ -219,7 +214,7 @@ function linkedList() {
     }
 
     if (index === 0) {
-      list = temp.next;
+      list = temp.nextNode;
       return;
     }
 
@@ -229,20 +224,33 @@ function linkedList() {
         return "Node not found"
       }
       
-      temp = temp.next;
+      temp = temp.nextNode;
   
     }
 
-    console.log(temp.next)
+    console.log(temp.nextNode)
 
-    if (!temp.next) {
+    if (!temp.nextNode) {
       return
     }
 
-    temp.next = temp.next.next;
+    temp.nextNode = temp.nextNode.nextNode;
   }
 
-  return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt};
+  return { 
+    append, 
+    prepend, 
+    size, 
+    head, 
+    tail, 
+    at, 
+    pop, 
+    contains, 
+    find, 
+    toString, 
+    insertAt, 
+    removeAt
+  };
 }
 
 
@@ -255,18 +263,18 @@ jj.append("John");
 jj.append("Jane");
 jj.append("Juno");
 
-// jj.prepend("Jake");
-// jj.prepend("Jill");
+jj.prepend("Jake");
+jj.prepend("Jill");
 
 // jj.append("Jim");
 
-console.log(jj.head());
+// console.log(jj.head());
 
-console.log(jj.size());
+// console.log(jj.size());
 
-console.log(jj.tail());
+// console.log(jj.tail());
 
-console.log(jj.at(3));
+// console.log(jj.at(3));
 
 // console.log("POP");
 // console.log(jj.pop());
@@ -291,13 +299,13 @@ console.log(jj.at(3));
 console.log(jj.contains("Jane"));
 console.log(jj.head());
 
-console.log("FIND");
-console.log(jj.find("Jane"));
+// console.log("FIND");
+// console.log(jj.find("Jane"));
 
-console.log(jj.toString())
+// console.log(jj.toString())
 
-console.log(jj.insertAt("Jill",3));
+// console.log(jj.insertAt("Jill",3));
 
-console.log(jj.removeAt(4));
+// console.log(jj.removeAt(4));
 
 console.log(jj.toString());
