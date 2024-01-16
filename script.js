@@ -1,9 +1,5 @@
 console.log("Hello World!");
-//  Create using factories, because composition is better than inheritance
-
-// Test all methods tomorrow before clicking submit.
-
-// change next to nextNode
+//  Created using factories, because composition is better than inheritance
 
 function linkedList() {
   // head
@@ -23,7 +19,6 @@ function linkedList() {
     }
     temp = list;
     while (temp.nextNode) {
-      //   console.log(list);
       temp = temp.nextNode;
     }
     temp.nextNode = node(value);
@@ -257,8 +252,6 @@ function linkedList() {
 
 const jj = linkedList();
 
-// console.log(jj);
-
 jj.append("John");
 jj.append("Jane");
 jj.append("Juno");
@@ -266,46 +259,23 @@ jj.append("Juno");
 jj.prepend("Jake");
 jj.prepend("Jill");
 
-// jj.append("Jim");
+console.log(jj.head());
 
-// console.log(jj.head());
+console.log(jj.size());
 
-// console.log(jj.size());
+console.log(jj.tail());
 
-// console.log(jj.tail());
-
-// console.log(jj.at(3));
-
-// console.log("POP");
-// console.log(jj.pop());
-
-// console.log("TAIL");
-// console.log(jj.tail());
-
-// console.log("POP");
-// console.log(jj.pop());
-
-// console.log("TAIL");
-// console.log(jj.tail());
-
-// console.log("POP");
-// console.log(jj.pop());
-
-// console.log("TAIL");
-// console.log(jj.tail());
-
-
+console.log(jj.at(3));
 
 console.log(jj.contains("Jane"));
 console.log(jj.head());
 
-// console.log("FIND");
-// console.log(jj.find("Jane"));
+console.log("FIND");
+console.log(jj.find("Jane"));
 
-// console.log(jj.toString())
+console.log(jj.insertAt("Jim",3));
 
-// console.log(jj.insertAt("Jill",3));
-
-// console.log(jj.removeAt(4));
+// Jane removed
+console.log(jj.removeAt(4));
 
 console.log(jj.toString());
