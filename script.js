@@ -252,30 +252,44 @@ function linkedList() {
 
 const jj = linkedList();
 
+// 1
 jj.append("John");
 jj.append("Jane");
 jj.append("Juno");
 
+// 2
 jj.prepend("Jake");
 jj.prepend("Jill");
 
+// 3
 console.log(jj.head());
 
+// 4
 console.log(jj.size());
 
+// 5
 console.log(jj.tail());
 
+// 6
 console.log(jj.at(3));
 
-console.log(jj.contains("Jane"));
-console.log(jj.head());
+// 7
+// Juno removed
+console.log(jj.pop())
 
+// 8
+console.log(jj.contains("Jane"));
+
+// 9
 console.log("FIND");
 console.log(jj.find("Jane"));
 
+// 10
 console.log(jj.insertAt("Jim",3));
 
+// 11
 // Jane removed
 console.log(jj.removeAt(4));
 
+// 12
 console.log(jj.toString());
